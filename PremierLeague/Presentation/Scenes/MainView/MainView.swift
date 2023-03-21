@@ -24,9 +24,10 @@ class MainLessonsHostingController: UIHostingController<MainView<DefaultMainView
 struct MainView<T : MainViewModel> : View {
     
     @ObservedObject var viewModel: T
-     @State private var isFavoriteSelected = false
-     @State private var selectedIndex = 0
-  
+    @State private var isFavoriteSelected = false
+    @State private var selectedIndex = 0
+    let backgroundColor = Color(#colorLiteral(red: 0.06274509804, green: 0.631372549, blue: 0.9568627451, alpha: 1))
+    
      var body: some View {
          VStack() {
              HStack(alignment: .top) {
@@ -47,7 +48,7 @@ struct MainView<T : MainViewModel> : View {
              Spacer()
              
          }.onAppear{
-             UISegmentedControl.appearance().selectedSegmentTintColor = .darkGray
+             UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(backgroundColor)
              viewModel.viewAppeared()
          }
      }
@@ -58,7 +59,7 @@ struct MainView<T : MainViewModel> : View {
                  Text(Constans.SegmentedView.all).tag(false)
                  Text(Constans.SegmentedView.favorite).tag(true)
              }
-             .pickerStyle(.navigationLink).padding(20).onChange(of: isFavoriteSelected) {
+             .pickerStyle(.segmented).padding(20).onChange(of: isFavoriteSelected) {
                  viewModel.showFav($0)
              }
          }
@@ -72,7 +73,7 @@ struct MainView<T : MainViewModel> : View {
      }
      
      private func matchGroupViewSection(_ matchGroup: MatchEntities) -> some View {
-         Section(header: Text(matchGroup.sectionTitle).font(.title).multilineTextAlignment(.center)) {
+         Section(header: MatchDayHeaderView(title: matchGroup.sectionTitle, color: .black)) {
              ForEach(matchGroup.matches, id: \.id) { match in
                  MatchCellView(viewModel: viewModel as! DefaultMainViewModel, matchEntity: match)
              }

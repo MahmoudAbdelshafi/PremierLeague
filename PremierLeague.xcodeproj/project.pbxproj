@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E505564029C50CD20008D9FE /* UserDefaultsManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505563F29C50CD20008D9FE /* UserDefaultsManger.swift */; };
 		E505564229C50DA40008D9FE /* FavouriteMatchsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505564129C50DA40008D9FE /* FavouriteMatchsUseCase.swift */; };
+		E5265BCD29C9E37A00FA5922 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E5265BCC29C9E37A00FA5922 /* Kingfisher */; };
+		E5265BD029C9E8EB00FA5922 /* MatchDayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5265BCF29C9E8EB00FA5922 /* MatchDayHeaderView.swift */; };
 		E583C8A129C12C0700905A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583C8A029C12C0700905A57 /* AppDelegate.swift */; };
 		E583C8A329C12C0700905A57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583C8A229C12C0700905A57 /* SceneDelegate.swift */; };
 		E583C8A829C12C0700905A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E583C8A629C12C0700905A57 /* Main.storyboard */; };
@@ -58,6 +60,7 @@
 /* Begin PBXFileReference section */
 		E505563F29C50CD20008D9FE /* UserDefaultsManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManger.swift; sourceTree = "<group>"; };
 		E505564129C50DA40008D9FE /* FavouriteMatchsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMatchsUseCase.swift; sourceTree = "<group>"; };
+		E5265BCF29C9E8EB00FA5922 /* MatchDayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDayHeaderView.swift; sourceTree = "<group>"; };
 		E583C89D29C12C0700905A57 /* PremierLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PremierLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E583C8A029C12C0700905A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E583C8A229C12C0700905A57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5265BCD29C9E37A00FA5922 /* Kingfisher in Frameworks */,
 				E583C8E329C20FE400905A57 /* Moya in Frameworks */,
 				E5EA678729C639A1007ED12C /* SnackBar in Frameworks */,
 			);
@@ -115,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5265BCE29C9E8D300FA5922 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				E5265BCF29C9E8EB00FA5922 /* MatchDayHeaderView.swift */,
+			);
+			path = HeaderViews;
+			sourceTree = "<group>";
+		};
 		E583C89429C12C0700905A57 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +267,7 @@
 		E583C8D929C1FB5600905A57 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				E5265BCE29C9E8D300FA5922 /* HeaderViews */,
 				E583C8DA29C1FB6C00905A57 /* MainView.swift */,
 				E58FF04929C48B6B00CEB963 /* MatchCellView.swift */,
 			);
@@ -393,6 +406,7 @@
 			packageProductDependencies = (
 				E583C8E229C20FE400905A57 /* Moya */,
 				E5EA678629C639A1007ED12C /* SnackBar */,
+				E5265BCC29C9E37A00FA5922 /* Kingfisher */,
 			);
 			productName = PremierLeague;
 			productReference = E583C89D29C12C0700905A57 /* PremierLeague.app */;
@@ -447,6 +461,7 @@
 			packageReferences = (
 				E583C8E129C20FE400905A57 /* XCRemoteSwiftPackageReference "Moya" */,
 				E5EA678529C639A1007ED12C /* XCRemoteSwiftPackageReference "SnackBar" */,
+				E5265BCB29C9E37A00FA5922 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E583C89E29C12C0700905A57 /* Products */;
 			projectDirPath = "";
@@ -483,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5265BD029C9E8EB00FA5922 /* MatchDayHeaderView.swift in Sources */,
 				E583C8D829C1FAD800905A57 /* MainScenesFlow.swift in Sources */,
 				E58FF04F29C4C55200CEB963 /* MatchsListStatus.swift in Sources */,
 				E583C8DE29C1FBAC00905A57 /* MainViewModel.swift in Sources */,
@@ -809,6 +825,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E5265BCB29C9E37A00FA5922 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		E583C8E129C20FE400905A57 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -829,6 +853,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E5265BCC29C9E37A00FA5922 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5265BCB29C9E37A00FA5922 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		E583C8E229C20FE400905A57 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E583C8E129C20FE400905A57 /* XCRemoteSwiftPackageReference "Moya" */;

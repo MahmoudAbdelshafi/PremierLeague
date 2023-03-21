@@ -13,5 +13,6 @@ struct Constans {
         public static let all = "All Maches"
         public static let favorite = "Favorite"
     }
+    public static let placeHolder = "https://crests.football-data.org/PL.png"
     
 }

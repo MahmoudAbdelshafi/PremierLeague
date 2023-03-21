@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MatchCellView: View {
     
     @ObservedObject private var viewModel: DefaultMainViewModel
     private let match: MatchEntity
+    let backgroundColor = Color(#colorLiteral(red: 0.06274509804, green: 0.631372549, blue: 0.9568627451, alpha: 1))
     
     init(viewModel: DefaultMainViewModel, matchEntity: MatchEntity) {
         self.viewModel = viewModel
@@ -28,8 +30,8 @@ struct MatchCellView: View {
         }
         .background(
             RoundedRectangle(cornerRadius:  5, style: .continuous)
-                .fill(Color.gray)
-                .foregroundColor(.gray)
+                .fill(backgroundColor)
+                .foregroundColor(backgroundColor)
         )
         .padding(8)
     }
@@ -47,6 +49,8 @@ struct MatchCellView: View {
     
     private var homeTeamName: some View {
         VStack(alignment: .center) {
+            webImage(imageURL: URL( string: match.homeTeam?.crest ?? ""))
+                .frame(width: 70, height: 45)
             Text(match.homeTeam?.shortName ?? "")
                 .font(.system(size: 14))
                 .multilineTextAlignment(.center)
@@ -64,10 +68,9 @@ struct MatchCellView: View {
             } else {
                 VStack {
                     Text("Time")
-                        .font(.headline)
-                        .padding(.bottom, 8)
-                    Text(match.time )
-                        .font(.headline)
+                        .font(.subheadline)
+                    Text(match.time)
+                        .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity)
                 .alignmentGuide(HorizontalAlignment.center) { d in
@@ -82,12 +85,20 @@ struct MatchCellView: View {
     
     private var awayTeamName: some View {
         VStack(alignment: .center) {
+            webImage(imageURL: URL( string: match.awayTeam?.crest ?? ""))
             Text(match.awayTeam?.shortName ?? "")
                 .font(.system(size: 14))
                 .multilineTextAlignment(.center)
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .frame(height: 50)
+    }
+    
+    private func webImage(imageURL: URL?) -> some View {
+        KFImage.url(imageURL).placeholder{KFImage.url(URL( string: Constans.placeHolder)).resizable()}.resizable()
+            .background(.white)
+            .frame(width: 40, height: 40)
+            .clipShape(Circle())
     }
 }
 
